@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MANTRANA FOUNDATION - Public Disclosure: All official documents are available here.">
+    <title>MANTRANA FOUNDATION | Public Disclosure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .disclosure-groups {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .disclosure-group {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .disclosure-group-legal {
+            order: 2;
+        }
+
+        .disclosure-group-registration {
+            order: 1;
+        }
+
+        .disclosure-group-title {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .disclosure-group-desc {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .disclosure-group .documents-grid {
+            max-width: none;
+        }
+
+        .document-card.pending {
+            opacity: 0.85;
+        }
+
+        .doc-btn-disabled {
+            background: #E2E8F0;
+            color: #64748B;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 992px) {
+            .disclosure-groups {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <div class="premium-translate" id="premiumTranslate">
+                    <button class="translate-btn" id="translateBtn">
+                        TRANSLATE <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="translate-dropdown" id="translateDropdown">
+                        <div class="translate-header">
+                            <h3>Select Language</h3>
+                            <p>INSTANT PAGE TRANSLATION</p>
+                        </div>
+                        <div class="translate-list" id="languageList">
+                            <div class="translate-item active" data-lang="en">
+                                <span class="dot"></span> English
+                            </div>
+                            <div class="translate-item" data-lang="as">
+                                <span class="dot"></span> Assamese
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Awadhi
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bodo
+                            </div>
+                            <div class="translate-item" data-lang="bn">
+                                <span class="dot"></span> Bengali
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bhojpuri
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Hindi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="google_translate_element"></div>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Our Work</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="crowdfund.html" class="nav-link">Crowdfunding</a>
+                <a href="disclosure.html" class="nav-link active">Disclosure</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="donate.html" class="btn btn-primary nav-donate-btn">Donate</a>
+            </div>
+            <button class="menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-hero">
+        <div class="page-hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="badge">Transparency</div>
+                <h1 class="page-hero-title">Public <span>Disclosure</span></h1>
+                <p class="page-hero-subtitle">Under MANTRANA FOUNDATION's transparency policy, all official documents
+                    are available here. You can view and download them.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Documents Section -->
+    <section class="section disclosure-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Official <span>Documents</span></h2>
+                <p class="section-subtitle">All important documents related to the foundation are listed below. Click to
+                    download.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="disclosure-groups">
+                <div class="disclosure-group disclosure-group-legal">
+                    <h3 class="disclosure-group-title">Legal Documents</h3>
+                    <p class="disclosure-group-desc">Core legal and governance documents of the foundation.</p>
+                    <div class="documents-grid">
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">1. MoA</h3>
+                                <p class="document-desc">Memorandum of Association of the foundation</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF MOA.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF MOA.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">2. Roules and Regulations</h3>
+                                <p class="document-desc">Articles of Association containing rules and regulations</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF AOA.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF AOA.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">3. Board of Mamber list</h3>
+                                <p class="document-desc">Board and director details available in the master data</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF MASTER DATA.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF MASTER DATA.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">4. MF Affidavite</h3>
+                                <p class="document-desc">Official affidavit document of the foundation</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF Affidavit.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF Affidavit.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">5. Section 8 License</h3>
+                                <p class="document-desc">Section 8 registration license issued under the Companies Act</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF Section 8 License.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF Section 8 License.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">6. Approval Letter</h3>
+                                <p class="document-desc">Official approval letter for the foundation</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF Approval Letter.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF Approval Letter.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">7. Pradeep DIN Approval</h3>
+                                <p class="document-desc">Director Identification Number approval for Pradeep</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF PRADEEP DIN APPROVAL.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF PRADEEP DIN APPROVAL.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">8. Ranjana DIN Approval</h3>
+                                <p class="document-desc">Director Identification Number approval for Ranjana</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF RANJANA DIN APPROVAL.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF RANJANA DIN APPROVAL.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disclosure-group disclosure-group-registration">
+                    <h3 class="disclosure-group-title">Disclosure Registration Documents</h3>
+                    <p class="disclosure-group-desc">Registration and compliance documents shared for public disclosure.</p>
+                    <div class="documents-grid">
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">1. Certificate of Incorporation</h3>
+                                <p class="document-desc">Registration proof of the foundation</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/MF CERTIFICATE MANTRANA-1.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/MF CERTIFICATE MANTRANA-1.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">2. PAN</h3>
+                                <p class="document-desc">PAN document image available for download</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/WhatsApp Image 2026-03-28 at 12.56.53 PM (1).jpeg" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/WhatsApp Image 2026-03-28 at 12.56.53 PM (1).jpeg" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">3. 12 A</h3>
+                                <p class="document-desc">12A registration certificate of the foundation</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/12A CERTIFICATE.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/12A CERTIFICATE.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3 class="document-title">4. 80 G</h3>
+                                <p class="document-desc">80G registration certificate of the foundation</p>
+                            </div>
+                            <div class="document-actions">
+                                <a href="assets/80G CERTIFICATE.pdf" target="_blank" class="doc-btn doc-btn-view" title="View">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                                <a href="assets/80G CERTIFICATE.pdf" download class="doc-btn doc-btn-download" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Images Section -->
+    <section class="section bg-light disclosure-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Additional <span>Evidence</span></h2>
+                <p class="section-subtitle">Additional proof and images related to the foundation.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="images-grid">
+                <div class="image-card">
+                    <div class="image-card-inner">
+                        <img src="assets/WhatsApp Image 2026-03-28 at 1.23.31 PM.jpeg"
+                            alt="Mantrana Foundation Evidence 1">
+                    </div>
+                    <div class="image-card-footer">
+                        <span><i class="fas fa-image"></i> Startup Certificate</span>
+                        <a href="assets/WhatsApp Image 2026-03-28 at 1.23.31 PM.jpeg" download
+                            class="doc-btn doc-btn-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo" class="logo-img">
+                </a>
+                <p class="footer-desc">Committed to promoting entrepreneurship and self-reliance in society.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Work</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="crowdfund.html">Crowdfunding</a></li>
+                    <li><a href="disclosure.html">Public Disclosure</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> mantranafoundation@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MANTRANA FOUNDATION. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,bn,te,mr,ta,ur,gu,kn,or,ml,pa,as,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

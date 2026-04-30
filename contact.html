@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MANTRANA FOUNDATION</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(244, 123, 32, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(30, 58, 138, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <div class="premium-translate" id="premiumTranslate">
+                    <button class="translate-btn" id="translateBtn">
+                        TRANSLATE <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="translate-dropdown" id="translateDropdown">
+                        <div class="translate-header">
+                            <h3>Select Language</h3>
+                            <p>INSTANT PAGE TRANSLATION</p>
+                        </div>
+                        <div class="translate-list" id="languageList">
+                            <div class="translate-item active" data-lang="en">
+                                <span class="dot"></span> English
+                            </div>
+                            <div class="translate-item" data-lang="as">
+                                <span class="dot"></span> Assamese
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Awadhi
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bodo
+                            </div>
+                            <div class="translate-item" data-lang="bn">
+                                <span class="dot"></span> Bengali
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bhojpuri
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Hindi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="google_translate_element"></div>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Our Work</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="crowdfund.html" class="nav-link">Crowdfunding</a>
+                <a href="disclosure.html" class="nav-link">Disclosure</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="donate.html" class="btn btn-primary nav-donate-btn">Donate</a>
+            </div>
+            <button class="menu-btn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Connect with us and help empower society</p>
+        </div>
+    </header>
+
+    <section class="contact-section container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Ways to <span class="text-primary">Reach Us</span></h2>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h4>Head Office</h4>
+                        <p>MANTRANA FOUNDATION<br>C/O PRADEEP KUMAR CHAUBEY <br> 4/007, NEAR LOKO COLONY,  MAIN ROAD CHOPAN  <br>OBRA, SONBHADRA - 231205, UTTAR PRADESH, India</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <h4>Phone Number</h4>
+                        <p>+91 9455009789<br>
++91 9616108007</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>mantranafoundation@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 20px; color: var(--secondary); font-size: 1.5rem;">Send Us a Message</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" placeholder="What would you like to ask or tell us?"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo" class="logo-img">
+                </a>
+                <p class="footer-desc">Committed to promoting entrepreneurship and self-reliance in society.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Work</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="crowdfund.html">Crowdfunding</a></li>
+                    <li><a href="disclosure.html">Public Disclosure</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> mantranafoundation@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MANTRANA FOUNDATION. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,bn,te,mr,ta,ur,gu,kn,or,ml,pa,as,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

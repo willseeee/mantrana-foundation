@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MANTRANA FOUNDATION - An organization dedicated to promoting entrepreneurship and self-reliance in society.">
+    <title>MANTRANA FOUNDATION | Entrepreneurship & Self-Reliance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <div class="premium-translate" id="premiumTranslate">
+                    <button class="translate-btn" id="translateBtn">
+                        TRANSLATE <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="translate-dropdown" id="translateDropdown">
+                        <div class="translate-header">
+                            <h3>Select Language</h3>
+                            <p>INSTANT PAGE TRANSLATION</p>
+                        </div>
+                        <div class="translate-list" id="languageList">
+                            <div class="translate-item active" data-lang="en">
+                                <span class="dot"></span> English
+                            </div>
+                            <div class="translate-item" data-lang="as">
+                                <span class="dot"></span> Assamese
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Awadhi
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bodo
+                            </div>
+                            <div class="translate-item" data-lang="bn">
+                                <span class="dot"></span> Bengali
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bhojpuri
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Hindi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="google_translate_element"></div>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Our Work</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="crowdfund.html" class="nav-link">Crowdfunding</a>
+                <a href="disclosure.html" class="nav-link">Disclosure</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="donate.html" class="btn btn-primary nav-donate-btn">Donate</a>
+            </div>
+            <button class="menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">Established: 2025</div>
+                <h1 class="hero-title">Empowering <span>Entrepreneurship</span> & Self-Reliance</h1>
+                <p class="hero-subtitle">
+                    <strong>MANTRANA FOUNDATION</strong> was established to promote entrepreneurship and self-reliance
+                    in society. We are dedicated to empowering MSMEs, startups, and self-help groups.
+                </p>
+                <div class="hero-actions">
+                    <a href="#mission" class="btn btn-primary">Our Mission <i class="fas fa-arrow-right"></i></a>
+                    <a href="#services" class="btn btn-outline">Our Work</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-img-wrapper">
+                    <div class="hero-img-container">
+                        <img src="hero-image.png" alt="MANTRANA FOUNDATION - Women Entrepreneurs"
+                            class="hero-real-image">
+                        <div class="image-overlay-card top-right glass-card">
+                            <i class="fas fa-hand-holding-dollar text-primary"></i>
+                            <span>MSME Growth</span>
+                        </div>
+                        <div class="image-overlay-card bottom-left glass-card">
+                            <i class="fas fa-globe text-secondary"></i>
+                            <span>Global Identity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our <span>Mission</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="mission-grid">
+                <div class="mission-image-container">
+                    <img src="mission-image.png" alt="MANTRANA FOUNDATION Mission" class="mission-real-image">
+                    <div class="mission-highlight-card glass-card">
+                        <i class="fas fa-bullseye text-primary" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <p>Driving <strong>public awareness</strong> for society & organizations</p>
+                    </div>
+                </div>
+                <div class="mission-content">
+                    <p class="mission-text text-xl">
+                        Our goal is to spread awareness about various government schemes and ensure their benefits
+                        reach the right people.
+                    </p>
+                    <ul class="mission-list">
+                        <li>
+                            <div class="list-icon"><i class="fas fa-check"></i></div>
+                            <div class="list-text">
+                                <strong>Scheme Awareness</strong>
+                                <span>Providing information about available opportunities for startups, digital MSMEs,
+                                    and other self-help groups.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon"><i class="fas fa-check"></i></div>
+                            <div class="list-text">
+                                <strong>Effective Marketing</strong>
+                                <span>Ensuring effective marketing systems for the products of entrepreneurs and
+                                    groups.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Work Section -->
+    <section id="services" class="services section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our <span>Focus Areas</span></h2>
+                <p class="section-subtitle">Providing national and global recognition to MSMEs and self-help groups
+                    through online and offline platforms.</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon wrapper-1">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="service-title">Promotion & Branding</h3>
+                    <p class="service-desc">Effective promotion and developing strong branding strategies for products.
+                    </p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon wrapper-2">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="service-title">Digital Marketing</h3>
+                    <p class="service-desc">Increasing product reach and sales through digital platforms.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon wrapper-3">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="service-title">Exhibitions & Sales</h3>
+                    <p class="service-desc">Organizing exhibitions at local and national levels to showcase products.
+                    </p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon wrapper-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="service-title">Network Development</h3>
+                    <p class="service-desc">Connecting products directly to markets and building a strong commercial
+                        network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="qr-community">
+        <div class="container">
+            <div class="qr-community-card">
+                <div class="qr-community-copy">
+                    <div class="badge">WhatsApp Community</div>
+                    <h2 class="qr-community-title">Join Our WhatsApp Group</h2>
+                    <p class="qr-community-text">
+                        Stay connected with MANTRANA FOUNDATION for updates, opportunities, announcements, and important
+                        community information. Scan the QR code to join our WhatsApp group directly.
+                    </p>
+                    <ul class="qr-community-points">
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Get updates about programs, awareness drives, and outreach activities.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <span>Connect with entrepreneurs, self-help groups, and supporters.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-bolt"></i>
+                            <span>Join instantly by scanning from another device or downloading the QR image.</span>
+                        </li>
+                    </ul>
+                    <div class="qr-community-actions">
+                        <a href="assets/WhatsApp Image 2026-04-08 at 12.09.59 PM.jpeg" target="_blank"
+                            class="btn btn-primary">
+                            Open QR Code <i class="fas fa-up-right-from-square"></i>
+                        </a>
+                        <a href="assets/WhatsApp Image 2026-04-08 at 12.09.59 PM.jpeg" download class="btn btn-outline">
+                            Download QR
+                        </a>
+                    </div>
+                </div>
+                <div class="qr-preview">
+                    <img src="assets/WhatsApp Image 2026-04-08 at 12.09.59 PM.jpeg" alt="WhatsApp Group QR Code">
+                    <p class="qr-preview-label">Scan to join the MANTRANA WhatsApp group</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo footer-logo">
+                    <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo" class="logo-img">
+                </a>
+                <p class="footer-desc">Committed to promoting entrepreneurship and self-reliance in society.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Work</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="crowdfund.html">Crowdfunding</a></li>
+                    <li><a href="disclosure.html">Public Disclosure</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> mantranafoundation@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MANTRANA FOUNDATION. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,bn,te,mr,ta,ur,gu,kn,or,ml,pa,as,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

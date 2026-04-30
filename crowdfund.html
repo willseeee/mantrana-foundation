@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Support MANTRANA FOUNDATION's crowdfunding campaigns. Help us empower MSMEs, startups, and self-help groups across India.">
+    <title>Fund a Cause | MANTRANA FOUNDATION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Crowdfund Page Variables ── */
+        :root {
+            --cf-green: #10B981;
+            --cf-green-light: rgba(16, 185, 129, 0.12);
+            --cf-orange: #F47B20;
+            --cf-blue: #1E3A8A;
+            --cf-purple: #8B5CF6;
+            --cf-purple-light: rgba(139, 92, 246, 0.12);
+            --cf-card-radius: 20px;
+        }
+
+        /* ── Page Hero ── */
+        .cf-hero {
+            position: relative;
+            padding: 160px 0 90px;
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 60%, #3B82F6 100%);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cf-hero .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+        }
+
+        .cf-hero .shape-1 {
+            top: -15%;
+            left: -8%;
+            width: 420px;
+            height: 420px;
+            background: var(--cf-orange);
+        }
+
+        .cf-hero .shape-2 {
+            bottom: -10%;
+            right: -5%;
+            width: 360px;
+            height: 360px;
+            background: var(--cf-purple);
+        }
+
+        .cf-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cf-hero .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 20px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(6px);
+        }
+
+        .cf-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            color: #fff;
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+
+        .cf-hero h1 span {
+            color: var(--cf-orange);
+        }
+
+        .cf-hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 620px;
+            margin: 0 auto 36px;
+        }
+
+        /* Hero Stats Strip */
+        .cf-stats-strip {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 52px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cf-stat-item {
+            text-align: center;
+            color: #fff;
+        }
+
+        .cf-stat-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            color: var(--cf-orange);
+            display: block;
+            line-height: 1;
+        }
+
+        .cf-stat-label {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Live Ticker Banner ── */
+        .cf-ticker {
+            background: var(--cf-orange);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .cf-ticker-track {
+            display: inline-flex;
+            animation: ticker 30s linear infinite;
+            gap: 60px;
+        }
+
+        .cf-ticker-item {
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.92rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cf-ticker-item i {
+            opacity: 0.8;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── Section: Active Campaigns ── */
+        .cf-section {
+            padding: 90px 0;
+        }
+
+        .cf-section.bg-light { background: var(--bg-light); }
+
+        .cf-section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .cf-section-header h2 {
+            font-size: 2.5rem;
+            color: var(--cf-blue);
+            margin-bottom: 14px;
+        }
+
+        .cf-section-header h2 span { color: var(--cf-orange); }
+
+        .cf-section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .cf-section-divider {
+            height: 4px;
+            width: 60px;
+            background: var(--cf-orange);
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ── Campaign Cards Grid ── */
+        .cf-campaigns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .cf-card {
+            background: #fff;
+            border-radius: var(--cf-card-radius);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            transition: transform 0.32s cubic-bezier(0.25, 0.8, 0.25, 1),
+                        box-shadow 0.32s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cf-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .cf-card-image {
+            position: relative;
+            height: 210px;
+            overflow: hidden;
+        }
+
+        .cf-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cf-card:hover .cf-card-image img {
+            transform: scale(1.06);
+        }
+
+        .cf-card-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .badge-education { background: rgba(59,130,246,0.9); color:#fff; }
+        .badge-women { background: rgba(139,92,246,0.9); color:#fff; }
+        .badge-livelihood { background: rgba(16,185,129,0.9); color:#fff; }
+        .badge-startup { background: rgba(244,123,32,0.9); color:#fff; }
+
+        .cf-urgency-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #EF4444;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .cf-card-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cf-card-org {
+            font-size: 0.8rem;
+            color: var(--cf-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cf-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cf-blue);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .cf-card-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        /* Progress Bar */
+        .cf-progress-wrap {
+            margin-bottom: 16px;
+        }
+
+        .cf-progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .cf-progress-raised { color: var(--cf-green); font-size: 0.95rem; }
+
+        .cf-progress-bar-bg {
+            background: #E2E8F0;
+            border-radius: 50px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .cf-progress-bar-fill {
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--cf-green), #34D399);
+            transition: width 1.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cf-progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer-bar 2.5s infinite;
+        }
+
+        @keyframes shimmer-bar {
+            to { left: 200%; }
+        }
+
+        .cf-card-stats {
+            display: flex;
+            gap: 18px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .cf-card-stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cf-card-stats i {
+            color: var(--cf-orange);
+            font-size: 0.85rem;
+        }
+
+        .cf-card-footer {
+            border-top: 1px solid #F1F5F9;
+            padding-top: 18px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .cf-btn-donate {
+            flex: 1;
+            text-align: center;
+            padding: 11px 18px;
+            background: var(--cf-orange);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 6px 15px rgba(244,123,32,0.3);
+        }
+
+        .cf-btn-donate:hover {
+            background: #cc5c0c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(244,123,32,0.4);
+        }
+
+        .cf-btn-share {
+            width: 44px;
+            height: 44px;
+            border: 2px solid #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            cursor: pointer;
+            background: transparent;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cf-btn-share:hover {
+            border-color: var(--cf-orange);
+            color: var(--cf-orange);
+            background: rgba(244,123,32,0.06);
+        }
+
+        /* ── Featured / Hero Campaign ── */
+        .cf-featured {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #0F172A 0%, #1e3a8a 100%);
+        }
+
+        .cf-featured-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .cf-featured-image-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+        }
+
+        .cf-featured-image-wrap img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cf-featured-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+        }
+
+        .cf-featured-image-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: #fff;
+        }
+
+        .cf-featured-image-label .cf-card-badge {
+            position: static;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .cf-featured-image-label h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cf-featured-content { }
+
+        .cf-featured-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 16px;
+            background: rgba(244,123,32,0.18);
+            border: 1px solid rgba(244,123,32,0.3);
+            border-radius: 50px;
+            color: var(--cf-orange);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .cf-featured-title {
+            font-size: 2.1rem;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .cf-featured-title span { color: var(--cf-orange); }
+
+        .cf-featured-desc {
+            color: rgba(255,255,255,0.72);
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 30px;
+        }
+
+        .cf-featured-progress-wrap { margin-bottom: 26px; }
+
+        .cf-featured-progress-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .cf-featured-progress-meta .amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--cf-orange);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cf-featured-progress-meta .goal {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.55);
+            align-self: flex-end;
+        }
+
+        .cf-featured-progress-bar-bg {
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            height: 12px;
+        }
+
+        .cf-featured-progress-bar-fill {
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--cf-orange), #FF9A4D);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cf-featured-progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+            animation: shimmer-bar 2.5s infinite;
+        }
+
+        .cf-featured-kpis {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cf-featured-kpi {
+            text-align: center;
+        }
+
+        .cf-featured-kpi .val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            display: block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cf-featured-kpi .lbl {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cf-featured-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-featured-donate {
+            padding: 14px 34px;
+            background: var(--cf-orange);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.02rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 22px rgba(244,123,32,0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-featured-donate:hover {
+            background: #cc5c0c;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(244,123,32,0.5);
+        }
+
+        .btn-featured-learn {
+            padding: 14px 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.02rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-featured-learn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        /* ── Donation Tiers ── */
+        .cf-tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        .cf-tier {
+            background: #fff;
+            border-radius: 18px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cf-tier::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--tier-color, var(--cf-orange));
+        }
+
+        .cf-tier:hover, .cf-tier.active {
+            border-color: var(--tier-color, var(--cf-orange));
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+
+        .cf-tier-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 1.6rem;
+            background: var(--tier-bg, rgba(244,123,32,0.1));
+            color: var(--tier-color, var(--cf-orange));
+        }
+
+        .cf-tier-name {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .cf-tier-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cf-blue);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 14px;
+        }
+
+        .cf-tier-amount span { font-size: 1.1rem; font-weight: 600; }
+
+        .cf-tier-perks {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 22px;
+            text-align: left;
+        }
+
+        .cf-tier-perks li {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            padding: 5px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .cf-tier-perks li i {
+            color: var(--cf-green);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .cf-popular-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--cf-orange);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Custom Amount Form ── */
+        .cf-custom-form {
+            max-width: 600px;
+            margin: 50px auto 0;
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.09);
+        }
+
+        .cf-custom-form h3 {
+            font-size: 1.4rem;
+            color: var(--cf-blue);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .cf-form-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .cf-form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .cf-form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--cf-blue);
+        }
+
+        .cf-form-group input,
+        .cf-form-group select {
+            padding: 12px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: 'Mukta', sans-serif;
+            color: var(--text-dark);
+            transition: border-color 0.25s ease;
+            outline: none;
+            background: #FAFAFA;
+        }
+
+        .cf-form-group input:focus,
+        .cf-form-group select:focus {
+            border-color: var(--cf-orange);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(244,123,32,0.1);
+        }
+
+        .cf-amount-input-wrap {
+            position: relative;
+        }
+
+        .cf-amount-input-wrap .currency-sym {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            color: var(--cf-orange);
+            font-size: 1.1rem;
+        }
+
+        .cf-amount-input-wrap input {
+            padding-left: 34px;
+        }
+
+        .cf-quick-amounts {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .cf-quick-btn {
+            padding: 8px 20px;
+            border: 2px solid #E2E8F0;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text-muted);
+            transition: all 0.25s ease;
+        }
+
+        .cf-quick-btn:hover, .cf-quick-btn.active {
+            border-color: var(--cf-orange);
+            color: var(--cf-orange);
+            background: rgba(244,123,32,0.07);
+        }
+
+        .cf-submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--cf-orange);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(244,123,32,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cf-submit-btn:hover {
+            background: #cc5c0c;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(244,123,32,0.45);
+        }
+
+        .cf-form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .cf-form-note i { color: var(--cf-green); }
+
+        /* ── Impact Wall ── */
+        .cf-impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .cf-impact-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .cf-impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+
+        .cf-impact-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .cf-impact-icon.i1 { background: rgba(244,123,32,0.1); color: var(--cf-orange); }
+        .cf-impact-icon.i2 { background: rgba(16,185,129,0.1); color: var(--cf-green); }
+        .cf-impact-icon.i3 { background: rgba(30,58,138,0.1); color: var(--cf-blue); }
+        .cf-impact-icon.i4 { background: rgba(139,92,246,0.1); color: var(--cf-purple); }
+        .cf-impact-icon.i5 { background: rgba(234,179,8,0.1); color: #CA8A04; }
+        .cf-impact-icon.i6 { background: rgba(239,68,68,0.1); color: #DC2626; }
+
+        .cf-impact-text h4 {
+            font-size: 1rem;
+            color: var(--cf-blue);
+            margin-bottom: 6px;
+        }
+
+        .cf-impact-text p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── Donor Wall ── */
+        .cf-donors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+
+        .cf-donor-pill {
+            background: #fff;
+            border-radius: 14px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .cf-donor-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+
+        .cf-donor-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cf-donor-info .name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--cf-blue);
+        }
+
+        .cf-donor-info .amount {
+            font-size: 0.8rem;
+            color: var(--cf-green);
+            font-weight: 600;
+        }
+
+        .cf-donor-info .time {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* ── FAQ Accordion ── */
+        .cf-faq-list {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .cf-faq-item {
+            background: #fff;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .cf-faq-item.open {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .cf-faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cf-faq-question h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cf-blue);
+        }
+
+        .cf-faq-question i {
+            color: var(--cf-orange);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .cf-faq-item.open .cf-faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .cf-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .cf-faq-item.open .cf-faq-answer {
+            max-height: 300px;
+        }
+
+        .cf-faq-answer p {
+            padding: 0 24px 20px;
+            font-size: 0.93rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── Trust Badges ── */
+        .cf-trust-bar {
+            padding: 40px 0;
+            background: var(--cf-blue);
+        }
+
+        .cf-trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .cf-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .cf-trust-item i {
+            font-size: 1.4rem;
+            color: var(--cf-orange);
+        }
+
+        /* ── CTA Banner ── */
+        .cf-cta {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #F47B20 0%, #FF9A4D 100%);
+            text-align: center;
+        }
+
+        .cf-cta h2 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cf-cta p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            max-width: 540px;
+            margin: 0 auto 36px;
+        }
+
+        .cf-cta-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-white {
+            padding: 14px 36px;
+            background: #fff;
+            color: var(--cf-orange);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-cta-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-cta-outline {
+            padding: 14px 32px;
+            border: 2px solid rgba(255,255,255,0.6);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta-outline:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: #fff;
+        }
+
+        /* ── Modal ── */
+        .cf-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            z-index: 9000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cf-modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cf-modal {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.92);
+            transition: transform 0.3s ease;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .cf-modal-overlay.open .cf-modal {
+            transform: scale(1);
+        }
+
+        .cf-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #F1F5F9;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .cf-modal-close:hover { background: #E2E8F0; }
+
+        .cf-modal-campaign-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--cf-orange);
+            margin-bottom: 10px;
+        }
+
+        .cf-modal h3 {
+            font-size: 1.5rem;
+            color: var(--cf-blue);
+            margin-bottom: 24px;
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cf-anim { opacity: 0; }
+        .cf-anim.visible { animation: fadeInUp 0.6s ease forwards; }
+        .cf-anim:nth-child(1) { animation-delay: 0s; }
+        .cf-anim:nth-child(2) { animation-delay: 0.1s; }
+        .cf-anim:nth-child(3) { animation-delay: 0.2s; }
+        .cf-anim:nth-child(4) { animation-delay: 0.3s; }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .cf-featured-grid { grid-template-columns: 1fr; }
+            .cf-featured-image-wrap img { height: 280px; }
+            .cf-featured-kpis { gap: 20px; }
+            .cf-custom-form { padding: 28px 20px; }
+            .cf-form-row { flex-direction: column; }
+            .cf-stats-strip { gap: 30px; }
+            .cf-campaigns-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Navbar (shared) ── -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo"
+                    class="logo-img">
+            </a>
+            <div class="nav-links">
+                <div class="premium-translate" id="premiumTranslate">
+                    <button class="translate-btn" id="translateBtn">
+                        TRANSLATE <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="translate-dropdown" id="translateDropdown">
+                        <div class="translate-header">
+                            <h3>Select Language</h3>
+                            <p>INSTANT PAGE TRANSLATION</p>
+                        </div>
+                        <div class="translate-list" id="languageList">
+                            <div class="translate-item active" data-lang="en">
+                                <span class="dot"></span> English
+                            </div>
+                            <div class="translate-item" data-lang="as">
+                                <span class="dot"></span> Assamese
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Awadhi
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bodo
+                            </div>
+                            <div class="translate-item" data-lang="bn">
+                                <span class="dot"></span> Bengali
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bhojpuri
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Hindi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="google_translate_element"></div>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Our Work</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="crowdfund.html" class="nav-link active">Crowdfunding</a>
+                <a href="disclosure.html" class="nav-link">Disclosure</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="donate.html" class="btn btn-primary nav-donate-btn">Donate</a>
+            </div>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── Hero ── -->
+    <header class="cf-hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="cf-hero-content container">
+            <div class="hero-eyebrow">
+                <i class="fas fa-hand-holding-heart"></i>
+                Community Crowdfunding Platform
+            </div>
+            <h1>Fund the Future of<br><span>Bharat's Entrepreneurs</span></h1>
+            <p>Every rupee you contribute directly empowers an MSME, a startup, or a self-help group to build a
+                better tomorrow. Join thousands of changemakers.</p>
+            <div class="hero-actions" style="justify-content:center;">
+                <a href="#campaigns" class="btn btn-primary">See Open Campaigns <i class="fas fa-arrow-down"></i></a>
+                <a href="#donate-form" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">Donate Now</a>
+            </div>
+
+            <div class="cf-stats-strip">
+                <div class="cf-stat-item">
+                    <span class="cf-stat-number" data-count="12450000" data-prefix="₹" data-suffix="">₹1.24Cr</span>
+                    <span class="cf-stat-label">Total Raised</span>
+                </div>
+                <div class="cf-stat-item">
+                    <span class="cf-stat-number" data-count="3820">3,820</span>
+                    <span class="cf-stat-label">Donors</span>
+                </div>
+                <div class="cf-stat-item">
+                    <span class="cf-stat-number" data-count="47">47</span>
+                    <span class="cf-stat-label">Active Campaigns</span>
+                </div>
+                <div class="cf-stat-item">
+                    <span class="cf-stat-number" data-count="1200">1,200+</span>
+                    <span class="cf-stat-label">Lives Impacted</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Live Ticker ── -->
+    <div class="cf-ticker" aria-hidden="true">
+        <div class="cf-ticker-track">
+            <span class="cf-ticker-item"><i class="fas fa-heart"></i> Ramesh K. just donated ₹2,000 to Women Weavers Initiative</span>
+            <span class="cf-ticker-item"><i class="fas fa-star"></i> Campaign "Rural Solar Power" reached 80% of its goal!</span>
+            <span class="cf-ticker-item"><i class="fas fa-heart"></i> Priya S. just donated ₹5,000 to Startup Seed Fund</span>
+            <span class="cf-ticker-item"><i class="fas fa-trophy"></i> "Digital Didi" campaign fully funded! 🎉</span>
+            <span class="cf-ticker-item"><i class="fas fa-heart"></i> Anonymous just donated ₹10,000</span>
+            <span class="cf-ticker-item"><i class="fas fa-star"></i> New campaign launched: Artisan Market Connect</span>
+            <!-- duplicate for seamless loop -->
+            <span class="cf-ticker-item"><i class="fas fa-heart"></i> Ramesh K. just donated ₹2,000 to Women Weavers Initiative</span>
+            <span class="cf-ticker-item"><i class="fas fa-star"></i> Campaign "Rural Solar Power" reached 80% of its goal!</span>
+            <span class="cf-ticker-item"><i class="fas fa-heart"></i> Priya S. just donated ₹5,000 to Startup Seed Fund</span>
+            <span class="cf-ticker-item"><i class="fas fa-trophy"></i> "Digital Didi" campaign fully funded! 🎉</span>
+            <span class="cf-ticker-item"><i class="fas fa-heart"></i> Anonymous just donated ₹10,000</span>
+            <span class="cf-ticker-item"><i class="fas fa-star"></i> New campaign launched: Artisan Market Connect</span>
+        </div>
+    </div>
+
+    <!-- ── Featured Campaign ── -->
+    <section class="cf-featured">
+        <div class="container">
+            <div class="cf-featured-grid">
+                <div class="cf-featured-image-wrap">
+                    <img src="project1-image.png" alt="Women Entrepreneurs Initiative">
+                    <div class="cf-featured-overlay"></div>
+                    <div class="cf-featured-image-label">
+                        <span class="cf-card-badge badge-women">Women Empowerment</span>
+                        <h3>Women Weavers of Vidarbha</h3>
+                    </div>
+                </div>
+                <div class="cf-featured-content">
+                    <div class="cf-featured-eyebrow">
+                        <i class="fas fa-fire"></i> Featured Campaign
+                    </div>
+                    <h2 class="cf-featured-title">Weaving <span>Dreams</span> into Reality — Vidarbha's Handloom Revolution</h2>
+                    <p class="cf-featured-desc">
+                        Over 320 skilled women weavers in Vidarbha lack the capital and market access to scale their incredible handloom craft. 
+                        Your contribution funds looms, marketing support, and e-commerce onboarding — turning traditional art into sustainable livelihoods.
+                    </p>
+                    <div class="cf-featured-progress-wrap">
+                        <div class="cf-featured-progress-meta">
+                            <span class="amount">₹8,45,200</span>
+                            <span class="goal">Goal: ₹12,00,000</span>
+                        </div>
+                        <div class="cf-featured-progress-bar-bg">
+                            <div class="cf-featured-progress-bar-fill" style="width: 70%;" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="cf-featured-kpis">
+                        <div class="cf-featured-kpi">
+                            <span class="val">70%</span>
+                            <span class="lbl">Funded</span>
+                        </div>
+                        <div class="cf-featured-kpi">
+                            <span class="val">892</span>
+                            <span class="lbl">Backers</span>
+                        </div>
+                        <div class="cf-featured-kpi">
+                            <span class="val">18</span>
+                            <span class="lbl">Days Left</span>
+                        </div>
+                    </div>
+                    <div class="cf-featured-actions">
+                        <button class="btn-featured-donate" onclick="openModal('Women Weavers of Vidarbha')">
+                            <i class="fas fa-heart"></i> Fund This Campaign
+                        </button>
+                        <button class="btn-featured-learn" onclick="document.getElementById('campaigns').scrollIntoView({behavior:'smooth'})">
+                            Explore All <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Trust Bar ── -->
+    <div class="cf-trust-bar">
+        <div class="container">
+            <div class="cf-trust-items">
+                <div class="cf-trust-item">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>100% Secure Payments</span>
+                </div>
+                <div class="cf-trust-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>80G Tax Exemption</span>
+                </div>
+                <div class="cf-trust-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Full Transparency Reports</span>
+                </div>
+                <div class="cf-trust-item">
+                    <i class="fas fa-building-columns"></i>
+                    <span>Registered NGO</span>
+                </div>
+                <div class="cf-trust-item">
+                    <i class="fas fa-handshake"></i>
+                    <span>100% Funds to Beneficiaries</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Active Campaigns ── -->
+    <section id="campaigns" class="cf-section">
+        <div class="container">
+            <div class="cf-section-header">
+                <h2>Active <span>Campaigns</span></h2>
+                <p>Choose a cause that moves you. Every amount makes a difference.</p>
+                <div class="cf-section-divider"></div>
+            </div>
+
+            <div class="cf-campaigns-grid">
+
+                <!-- Card 1 -->
+                <div class="cf-card cf-anim">
+                    <div class="cf-card-image">
+                        <img src="mission-image.png" alt="Digital Literacy Campaign">
+                        <span class="cf-card-badge badge-education">Education</span>
+                        <span class="cf-urgency-badge"><i class="fas fa-clock"></i> 6 Days Left</span>
+                    </div>
+                    <div class="cf-card-body">
+                        <div class="cf-card-org"><i class="fas fa-circle-dot"></i> MANTRANA FOUNDATION</div>
+                        <h3 class="cf-card-title">Digital Literacy for Rural MSMEs</h3>
+                        <p class="cf-card-desc">Training 500+ rural entrepreneurs in digital tools, GST filing, and online marketplace integration to unlock new revenue streams.</p>
+                        <div class="cf-progress-wrap">
+                            <div class="cf-progress-meta">
+                                <span class="cf-progress-raised">₹2,34,500 raised</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="cf-progress-bar-bg">
+                                <div class="cf-progress-bar-fill" style="width:0%" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="cf-card-stats">
+                            <span><i class="fas fa-users"></i> 412 donors</span>
+                            <span><i class="fas fa-bullseye"></i> Goal: ₹3,00,000</span>
+                        </div>
+                        <div class="cf-card-footer">
+                            <button class="cf-btn-donate" onclick="openModal('Digital Literacy for Rural MSMEs')">Donate Now</button>
+                            <button class="cf-btn-share" onclick="shareCard('Digital Literacy for Rural MSMEs')" title="Share"><i class="fas fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="cf-card cf-anim">
+                    <div class="cf-card-image">
+                        <img src="services-image.png" alt="Startup Seed Fund">
+                        <span class="cf-card-badge badge-startup">Startup</span>
+                    </div>
+                    <div class="cf-card-body">
+                        <div class="cf-card-org"><i class="fas fa-circle-dot"></i> MANTRANA FOUNDATION</div>
+                        <h3 class="cf-card-title">Startup Seed Fund — Batch 3</h3>
+                        <p class="cf-card-desc">Providing seed capital and mentorship to 20 first-generation entrepreneurs from tier-2 and tier-3 cities ready to scale.</p>
+                        <div class="cf-progress-wrap">
+                            <div class="cf-progress-meta">
+                                <span class="cf-progress-raised">₹4,80,000 raised</span>
+                                <span>48%</span>
+                            </div>
+                            <div class="cf-progress-bar-bg">
+                                <div class="cf-progress-bar-fill" style="width:0%" data-width="48"></div>
+                            </div>
+                        </div>
+                        <div class="cf-card-stats">
+                            <span><i class="fas fa-users"></i> 638 donors</span>
+                            <span><i class="fas fa-bullseye"></i> Goal: ₹10,00,000</span>
+                        </div>
+                        <div class="cf-card-footer">
+                            <button class="cf-btn-donate" onclick="openModal('Startup Seed Fund — Batch 3')">Donate Now</button>
+                            <button class="cf-btn-share" onclick="shareCard('Startup Seed Fund — Batch 3')" title="Share"><i class="fas fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="cf-card cf-anim">
+                    <div class="cf-card-image">
+                        <img src="about-image.png" alt="SHG Market Connect">
+                        <span class="cf-card-badge badge-livelihood">Livelihood</span>
+                    </div>
+                    <div class="cf-card-body">
+                        <div class="cf-card-org"><i class="fas fa-circle-dot"></i> MANTRANA FOUNDATION</div>
+                        <h3 class="cf-card-title">SHG Market Connect — Pan India</h3>
+                        <p class="cf-card-desc">Connecting 80 self-help groups across 12 states to national and international markets through curated exhibitions and digital storefronts.</p>
+                        <div class="cf-progress-wrap">
+                            <div class="cf-progress-meta">
+                                <span class="cf-progress-raised">₹6,10,750 raised</span>
+                                <span>91%</span>
+                            </div>
+                            <div class="cf-progress-bar-bg">
+                                <div class="cf-progress-bar-fill" style="width:0%" data-width="91"></div>
+                            </div>
+                        </div>
+                        <div class="cf-card-stats">
+                            <span><i class="fas fa-users"></i> 1,104 donors</span>
+                            <span><i class="fas fa-bullseye"></i> Goal: ₹6,70,000</span>
+                        </div>
+                        <div class="cf-card-footer">
+                            <button class="cf-btn-donate" onclick="openModal('SHG Market Connect — Pan India')">Donate Now</button>
+                            <button class="cf-btn-share" onclick="shareCard('SHG Market Connect — Pan India')" title="Share"><i class="fas fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="cf-card cf-anim">
+                    <div class="cf-card-image">
+                        <img src="hero-image.png" alt="Solar Micro-Enterprise">
+                        <span class="cf-card-badge badge-livelihood">Sustainability</span>
+                        <span class="cf-urgency-badge"><i class="fas fa-clock"></i> 12 Days Left</span>
+                    </div>
+                    <div class="cf-card-body">
+                        <div class="cf-card-org"><i class="fas fa-circle-dot"></i> MANTRANA FOUNDATION</div>
+                        <h3 class="cf-card-title">Rural Solar Micro-Enterprises</h3>
+                        <p class="cf-card-desc">Equipping 100 rural households with solar kits and training to launch solar-powered micro-businesses, reducing energy poverty.</p>
+                        <div class="cf-progress-wrap">
+                            <div class="cf-progress-meta">
+                                <span class="cf-progress-raised">₹3,20,000 raised</span>
+                                <span>64%</span>
+                            </div>
+                            <div class="cf-progress-bar-bg">
+                                <div class="cf-progress-bar-fill" style="width:0%" data-width="64"></div>
+                            </div>
+                        </div>
+                        <div class="cf-card-stats">
+                            <span><i class="fas fa-users"></i> 527 donors</span>
+                            <span><i class="fas fa-bullseye"></i> Goal: ₹5,00,000</span>
+                        </div>
+                        <div class="cf-card-footer">
+                            <button class="cf-btn-donate" onclick="openModal('Rural Solar Micro-Enterprises')">Donate Now</button>
+                            <button class="cf-btn-share" onclick="shareCard('Rural Solar Micro-Enterprises')" title="Share"><i class="fas fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="cf-card cf-anim">
+                    <div class="cf-card-image">
+                        <img src="mission-image.png" alt="Artisan Branding">
+                        <span class="cf-card-badge badge-education">Branding</span>
+                    </div>
+                    <div class="cf-card-body">
+                        <div class="cf-card-org"><i class="fas fa-circle-dot"></i> MANTRANA FOUNDATION</div>
+                        <h3 class="cf-card-title">Artisan Identity &amp; Branding Bootcamp</h3>
+                        <p class="cf-card-desc">A 3-day intensive workshop to help artisan groups craft their brand identity, packaging, and digital presence for premium market access.</p>
+                        <div class="cf-progress-wrap">
+                            <div class="cf-progress-meta">
+                                <span class="cf-progress-raised">₹88,000 raised</span>
+                                <span>29%</span>
+                            </div>
+                            <div class="cf-progress-bar-bg">
+                                <div class="cf-progress-bar-fill" style="width:0%" data-width="29"></div>
+                            </div>
+                        </div>
+                        <div class="cf-card-stats">
+                            <span><i class="fas fa-users"></i> 163 donors</span>
+                            <span><i class="fas fa-bullseye"></i> Goal: ₹3,00,000</span>
+                        </div>
+                        <div class="cf-card-footer">
+                            <button class="cf-btn-donate" onclick="openModal('Artisan Identity & Branding Bootcamp')">Donate Now</button>
+                            <button class="cf-btn-share" onclick="shareCard('Artisan Identity & Branding Bootcamp')" title="Share"><i class="fas fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="cf-card cf-anim">
+                    <div class="cf-card-image">
+                        <img src="about-image.png" alt="Women in Finance">
+                        <span class="cf-card-badge badge-women">Women Empowerment</span>
+                    </div>
+                    <div class="cf-card-body">
+                        <div class="cf-card-org"><i class="fas fa-circle-dot"></i> MANTRANA FOUNDATION</div>
+                        <h3 class="cf-card-title">Financial Literacy for Women Entrepreneurs</h3>
+                        <p class="cf-card-desc">Empowering 600 women with practical financial literacy — banking, credit, GST, and investment — so they can grow and protect their businesses.</p>
+                        <div class="cf-progress-wrap">
+                            <div class="cf-progress-meta">
+                                <span class="cf-progress-raised">₹1,55,000 raised</span>
+                                <span>52%</span>
+                            </div>
+                            <div class="cf-progress-bar-bg">
+                                <div class="cf-progress-bar-fill" style="width:0%" data-width="52"></div>
+                            </div>
+                        </div>
+                        <div class="cf-card-stats">
+                            <span><i class="fas fa-users"></i> 294 donors</span>
+                            <span><i class="fas fa-bullseye"></i> Goal: ₹3,00,000</span>
+                        </div>
+                        <div class="cf-card-footer">
+                            <button class="cf-btn-donate" onclick="openModal('Financial Literacy for Women Entrepreneurs')">Donate Now</button>
+                            <button class="cf-btn-share" onclick="shareCard('Financial Literacy for Women Entrepreneurs')" title="Share"><i class="fas fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Donation Tiers ── -->
+    <section class="cf-section bg-light" id="donate-form">
+        <div class="container">
+            <div class="cf-section-header">
+                <h2>Choose Your <span>Impact Level</span></h2>
+                <p>Every tier has a story. Pick yours and become part of our foundation's journey.</p>
+                <div class="cf-section-divider"></div>
+            </div>
+
+            <div class="cf-tiers-grid">
+
+                <div class="cf-tier cf-anim" style="--tier-color:#3B82F6; --tier-bg:rgba(59,130,246,0.1);"
+                    onclick="selectTier(this, 500)">
+                    <div class="cf-tier-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="cf-tier-name">Seed Sower</div>
+                    <div class="cf-tier-amount"><span>₹</span>500</div>
+                    <ul class="cf-tier-perks">
+                        <li><i class="fas fa-check-circle"></i> Digital thank-you certificate</li>
+                        <li><i class="fas fa-check-circle"></i> Impact newsletter for 3 months</li>
+                        <li><i class="fas fa-check-circle"></i> Name on our donor wall</li>
+                    </ul>
+                    <button class="cf-btn-donate">Select</button>
+                </div>
+
+                <div class="cf-tier cf-anim" style="--tier-color:#10B981; --tier-bg:rgba(16,185,129,0.1);"
+                    onclick="selectTier(this, 2000)">
+                    <div class="cf-tier-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="cf-tier-name">Growth Patron</div>
+                    <div class="cf-tier-amount"><span>₹</span>2,000</div>
+                    <ul class="cf-tier-perks">
+                        <li><i class="fas fa-check-circle"></i> All Seed Sower perks</li>
+                        <li><i class="fas fa-check-circle"></i> Exclusive impact story report</li>
+                        <li><i class="fas fa-check-circle"></i> Quarterly video update</li>
+                    </ul>
+                    <button class="cf-btn-donate">Select</button>
+                </div>
+
+                <div class="cf-tier cf-anim active" style="--tier-color:#F47B20; --tier-bg:rgba(244,123,32,0.1);"
+                    onclick="selectTier(this, 5000)">
+                    <div class="cf-popular-badge">Popular</div>
+                    <div class="cf-tier-icon"><i class="fas fa-tree"></i></div>
+                    <div class="cf-tier-name">Uplift Champion</div>
+                    <div class="cf-tier-amount"><span>₹</span>5,000</div>
+                    <ul class="cf-tier-perks">
+                        <li><i class="fas fa-check-circle"></i> All Growth Patron perks</li>
+                        <li><i class="fas fa-check-circle"></i> Beneficiary success story (dedicated)</li>
+                        <li><i class="fas fa-check-circle"></i> Live webinar access</li>
+                    </ul>
+                    <button class="cf-btn-donate">Select</button>
+                </div>
+
+                <div class="cf-tier cf-anim" style="--tier-color:#8B5CF6; --tier-bg:rgba(139,92,246,0.1);"
+                    onclick="selectTier(this, 25000)">
+                    <div class="cf-tier-icon"><i class="fas fa-crown"></i></div>
+                    <div class="cf-tier-name">Transformation Leader</div>
+                    <div class="cf-tier-amount"><span>₹</span>25,000</div>
+                    <ul class="cf-tier-perks">
+                        <li><i class="fas fa-check-circle"></i> All Champion perks</li>
+                        <li><i class="fas fa-check-circle"></i> Advisory board invitations</li>
+                        <li><i class="fas fa-check-circle"></i> Brand featured on campaigns</li>
+                    </ul>
+                    <button class="cf-btn-donate">Select</button>
+                </div>
+
+            </div>
+
+            <!-- Custom Amount Form -->
+            <div class="cf-custom-form cf-anim" id="customDonateForm">
+                <h3>Or Donate a Custom Amount</h3>
+                <div class="cf-quick-amounts">
+                    <button class="cf-quick-btn" onclick="setAmount(100, this)">₹100</button>
+                    <button class="cf-quick-btn" onclick="setAmount(500, this)">₹500</button>
+                    <button class="cf-quick-btn" onclick="setAmount(1000, this)">₹1,000</button>
+                    <button class="cf-quick-btn" onclick="setAmount(2500, this)">₹2,500</button>
+                    <button class="cf-quick-btn" onclick="setAmount(5000, this)">₹5,000</button>
+                    <button class="cf-quick-btn" onclick="setAmount(10000, this)">₹10,000</button>
+                </div>
+                <div class="cf-form-row">
+                    <div class="cf-form-group">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" placeholder="Your full name">
+                    </div>
+                    <div class="cf-form-group">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" placeholder="your@email.com">
+                    </div>
+                </div>
+                <div class="cf-form-row">
+                    <div class="cf-form-group">
+                        <label for="donorPhone">Phone Number</label>
+                        <input type="tel" id="donorPhone" placeholder="+91 9876543210">
+                    </div>
+                    <div class="cf-form-group">
+                        <label for="donorCampaign">Campaign (optional)</label>
+                        <select id="donorCampaign">
+                            <option value="">Any / General Fund</option>
+                            <option>Women Weavers of Vidarbha</option>
+                            <option>Digital Literacy for Rural MSMEs</option>
+                            <option>Startup Seed Fund — Batch 3</option>
+                            <option>SHG Market Connect — Pan India</option>
+                            <option>Rural Solar Micro-Enterprises</option>
+                            <option>Artisan Identity & Branding Bootcamp</option>
+                            <option>Financial Literacy for Women</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cf-form-group" style="margin-bottom:20px;">
+                    <label for="donorAmount">Donation Amount (₹)</label>
+                    <div class="cf-amount-input-wrap">
+                        <span class="currency-sym">₹</span>
+                        <input type="number" id="donorAmount" placeholder="Enter amount" min="10">
+                    </div>
+                </div>
+                <button class="cf-submit-btn" id="submitDonationBtn" onclick="handleDonation()">
+                    <i class="fas fa-heart"></i> Donate Securely Now
+                </button>
+                <p class="cf-form-note">
+                    <i class="fas fa-lock"></i>
+                    SSL-secured payment. Eligible for 80G tax deduction. Receipts sent to your email.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Your Impact ── -->
+    <section class="cf-section">
+        <div class="container">
+            <div class="cf-section-header">
+                <h2>Your Money at <span>Work</span></h2>
+                <p>Here's exactly how contributions are allocated and the impact they create on the ground.</p>
+                <div class="cf-section-divider"></div>
+            </div>
+            <div class="cf-impact-grid">
+                <div class="cf-impact-card cf-anim">
+                    <div class="cf-impact-icon i1"><i class="fas fa-store"></i></div>
+                    <div class="cf-impact-text">
+                        <h4>₹500 funds one MSME's digital onboarding</h4>
+                        <p>Gets a rural entrepreneur set up with GST, UPI, and a digital catalog to sell nationwide.</p>
+                    </div>
+                </div>
+                <div class="cf-impact-card cf-anim">
+                    <div class="cf-impact-icon i2"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="cf-impact-text">
+                        <h4>₹1,000 sponsors a full training day</h4>
+                        <p>Covers venue, materials, and expert trainers for a full day of skill development for 10 participants.</p>
+                    </div>
+                </div>
+                <div class="cf-impact-card cf-anim">
+                    <div class="cf-impact-icon i3"><i class="fas fa-solar-panel"></i></div>
+                    <div class="cf-impact-text">
+                        <h4>₹5,000 powers a solar micro-kit</h4>
+                        <p>Provides a complete solar charging station, enabling a rural household to power and launch a micro-business.</p>
+                    </div>
+                </div>
+                <div class="cf-impact-card cf-anim">
+                    <div class="cf-impact-icon i4"><i class="fas fa-handshake-angle"></i></div>
+                    <div class="cf-impact-text">
+                        <h4>₹10,000 seeds a startup's first month</h4>
+                        <p>Covers operational expenses, registration, and mentorship access for one first-generation entrepreneur.</p>
+                    </div>
+                </div>
+                <div class="cf-impact-card cf-anim">
+                    <div class="cf-impact-icon i5"><i class="fas fa-palette"></i></div>
+                    <div class="cf-impact-text">
+                        <h4>₹25,000 sponsors a full exhibition stall</h4>
+                        <p>Gives an SHG a national exhibition presence complete with branding, logistics, and display setup.</p>
+                    </div>
+                </div>
+                <div class="cf-impact-card cf-anim">
+                    <div class="cf-impact-icon i6"><i class="fas fa-globe-asia"></i></div>
+                    <div class="cf-impact-text">
+                        <h4>₹1,00,000 builds a global identity</h4>
+                        <p>Funds a full brand identity package, international e-commerce setup, and 6 months of digital marketing for one group.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Recent Donors ── -->
+    <section class="cf-section bg-light">
+        <div class="container">
+            <div class="cf-section-header">
+                <h2>Our <span>Generous Donors</span></h2>
+                <p>Thank you to all who have contributed to building a better Bharat.</p>
+                <div class="cf-section-divider"></div>
+            </div>
+            <div class="cf-donors-grid" id="donorWall">
+                <!-- Populated by JS -->
+            </div>
+            <div style="text-align:center;">
+                <a href="donate.html" class="btn btn-primary">View All Donors <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="cf-section">
+        <div class="container">
+            <div class="cf-section-header">
+                <h2>Frequently Asked <span>Questions</span></h2>
+                <p>Everything you need to know about contributing to MANTRANA FOUNDATION campaigns.</p>
+                <div class="cf-section-divider"></div>
+            </div>
+            <div class="cf-faq-list">
+
+                <div class="cf-faq-item" id="faq1">
+                    <div class="cf-faq-question" onclick="toggleFaq('faq1')">
+                        <h4>Is my donation tax-deductible?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="cf-faq-answer">
+                        <p>Yes! MANTRANA FOUNDATION is eligible under Section 80G of the Income Tax Act. You will receive an official receipt for your contribution that you can use to claim tax deductions when filing your returns.</p>
+                    </div>
+                </div>
+
+                <div class="cf-faq-item" id="faq2">
+                    <div class="cf-faq-question" onclick="toggleFaq('faq2')">
+                        <h4>How do I know my money reaches the right people?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="cf-faq-answer">
+                        <p>We publish quarterly transparency reports detailing exactly how funds are utilized. You also receive campaign-specific impact updates via email. 100% of your donation goes directly to beneficiaries — MANTRANA FOUNDATION covers all administrative costs separately.</p>
+                    </div>
+                </div>
+
+                <div class="cf-faq-item" id="faq3">
+                    <div class="cf-faq-question" onclick="toggleFaq('faq3')">
+                        <h4>Can I donate to a specific campaign?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="cf-faq-answer">
+                        <p>Absolutely. Each campaign card has a dedicated "Donate Now" button that pre-selects that campaign. You can also choose a specific campaign from the dropdown in the custom donation form. If you'd like your contribution to go wherever it's needed most, select "Any / General Fund".</p>
+                    </div>
+                </div>
+
+                <div class="cf-faq-item" id="faq4">
+                    <div class="cf-faq-question" onclick="toggleFaq('faq4')">
+                        <h4>What payment methods are accepted?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="cf-faq-answer">
+                        <p>We accept UPI, Net Banking, Credit/Debit Cards, and Wallets. All transactions are SSL-encrypted for your security. Receipts are automatically emailed within 24 hours of a successful payment.</p>
+                    </div>
+                </div>
+
+                <div class="cf-faq-item" id="faq5">
+                    <div class="cf-faq-question" onclick="toggleFaq('faq5')">
+                        <h4>Can my company or organization run a corporate campaign?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="cf-faq-answer">
+                        <p>Yes! We welcome CSR partnerships. Reach out via our Contact page or email mantranafoundation@gmail.com to discuss a customized corporate giving campaign that aligns with your company's social responsibility goals.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cf-cta">
+        <div class="container">
+            <h2>Be the Change Bharat Needs Today</h2>
+            <p>Join thousands of changemakers funding the dreams of entrepreneurs across India. No amount is too small.</p>
+            <div class="cf-cta-btns">
+                <button class="btn-cta-white" onclick="document.getElementById('donate-form').scrollIntoView({behavior:'smooth'})">
+                    <i class="fas fa-heart"></i> Donate Now
+                </button>
+                <a href="contact.html" class="btn-cta-outline">
+                    Partner With Us <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo"
+                        class="logo-img">
+                </a>
+                <p class="footer-desc">Committed to promoting entrepreneurship and self-reliance in society.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Work</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="crowdfund.html">Crowdfunding</a></li>
+                    <li><a href="disclosure.html">Public Disclosure</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> mantranafoundation@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MANTRANA FOUNDATION. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ── Donation Modal ── -->
+    <div class="cf-modal-overlay" id="donationModal">
+        <div class="cf-modal">
+            <button class="cf-modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div class="cf-modal-campaign-name" id="modalCampaignName">Campaign</div>
+            <h3 id="modalTitle">Make Your Donation</h3>
+            <div class="cf-quick-amounts" style="margin-bottom:16px;">
+                <button class="cf-quick-btn" onclick="setModalAmount(500, this)">₹500</button>
+                <button class="cf-quick-btn" onclick="setModalAmount(1000, this)">₹1,000</button>
+                <button class="cf-quick-btn" onclick="setModalAmount(2500, this)">₹2,500</button>
+                <button class="cf-quick-btn" onclick="setModalAmount(5000, this)">₹5,000</button>
+            </div>
+            <div class="cf-form-group" style="margin-bottom:14px;">
+                <label for="modalAmount">Amount (₹)</label>
+                <div class="cf-amount-input-wrap">
+                    <span class="currency-sym">₹</span>
+                    <input type="number" id="modalAmount" placeholder="Enter donation amount" min="10">
+                </div>
+            </div>
+            <div class="cf-form-group" style="margin-bottom:14px;">
+                <label for="modalName">Your Name</label>
+                <input type="text" id="modalName" placeholder="Full name">
+            </div>
+            <div class="cf-form-group" style="margin-bottom:20px;">
+                <label for="modalEmail">Email Address</label>
+                <input type="email" id="modalEmail" placeholder="For receipt & updates">
+            </div>
+            <button class="cf-submit-btn" onclick="submitModalDonation()">
+                <i class="fas fa-lock"></i> Donate Securely
+            </button>
+            <p class="cf-form-note" style="margin-top:12px;">
+                <i class="fas fa-shield-halved"></i>
+                256-bit SSL secured · 80G tax receipt via email
+            </p>
+        </div>
+    </div>
+
+    <!-- ── Success Toast ── -->
+    <div id="successToast" style="
+        position:fixed; bottom:30px; right:30px; z-index:99999;
+        background: linear-gradient(135deg, #10B981, #34D399);
+        color:#fff; padding:16px 24px; border-radius:14px;
+        box-shadow: 0 10px 30px rgba(16,185,129,0.35);
+        font-weight:600; font-size:0.95rem;
+        display:flex; align-items:center; gap:10px;
+        transform: translateY(120px); opacity:0;
+        transition: all 0.5s cubic-bezier(0.25,0.8,0.25,1);
+        max-width: 340px;
+    ">
+        <i class="fas fa-circle-check" style="font-size:1.3rem;"></i>
+        <div>
+            <div style="font-size:1rem;">Thank you for your donation!</div>
+            <div style="font-size:0.8rem;opacity:0.85;font-weight:400;">Receipt & updates will be sent to your email.</div>
+        </div>
+    </div>
+
+    <!-- Standard scripts -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,bn,te,mr,ta,ur,gu,kn,or,ml,pa,as,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+
+    <!-- Crowdfund Page Script -->
+    <script>
+        /* ── Navbar scroll ── */
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            mainNav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        /* ── Mobile menu ── */
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('nav-open');
+        });
+
+        /* ── Animate progress bars on scroll ── */
+        const animateBars = () => {
+            document.querySelectorAll('.cf-progress-bar-fill, .cf-featured-progress-bar-fill').forEach(bar => {
+                const targetWidth = bar.dataset.width;
+                if (targetWidth && isInViewport(bar)) {
+                    bar.style.width = targetWidth + '%';
+                    bar.removeAttribute('data-width');
+                }
+            });
+        };
+
+        const isInViewport = el => {
+            const rect = el.getBoundingClientRect();
+            return rect.top < window.innerHeight - 60;
+        };
+
+        /* ── Scroll animations ── */
+        const handleScroll = () => {
+            document.querySelectorAll('.cf-anim').forEach(el => {
+                if (isInViewport(el)) el.classList.add('visible');
+            });
+            animateBars();
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => { setTimeout(handleScroll, 100); });
+
+        /* ── Modal ── */
+        let currentCampaign = '';
+
+        function openModal(campaignName) {
+            currentCampaign = campaignName;
+            document.getElementById('modalCampaignName').textContent = campaignName;
+            document.getElementById('donationModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('donationModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('donationModal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        /* ── Quick amount buttons ── */
+        function setAmount(val, btn) {
+            document.getElementById('donorAmount').value = val;
+            document.querySelectorAll('#customDonateForm .cf-quick-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function setModalAmount(val, btn) {
+            document.getElementById('modalAmount').value = val;
+            document.querySelectorAll('#donationModal .cf-quick-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        /* ── Tier selection ── */
+        function selectTier(el, amount) {
+            document.querySelectorAll('.cf-tier').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('donorAmount').value = amount;
+            document.getElementById('donate-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        /* ── Form donation handler ── */
+        function handleDonation() {
+            const name = document.getElementById('donorName').value.trim();
+            const email = document.getElementById('donorEmail').value.trim();
+            const amount = document.getElementById('donorAmount').value;
+            if (!name) { alert('Please enter your name.'); return; }
+            if (!email) { alert('Please enter your email.'); return; }
+            if (!amount || amount < 10) { alert('Please enter a valid donation amount (minimum ₹10).'); return; }
+            showToast();
+            addDonorTile(name, amount);
+            document.getElementById('donorName').value = '';
+            document.getElementById('donorEmail').value = '';
+            document.getElementById('donorPhone').value = '';
+            document.getElementById('donorAmount').value = '';
+        }
+
+        /* ── Modal donation ── */
+        function submitModalDonation() {
+            const name = document.getElementById('modalName').value.trim();
+            const email = document.getElementById('modalEmail').value.trim();
+            const amount = document.getElementById('modalAmount').value;
+            if (!name || !email || !amount || amount < 10) {
+                alert('Please fill in all fields with a valid amount (min ₹10).');
+                return;
+            }
+            closeModal();
+            showToast();
+            addDonorTile(name, amount);
+        }
+
+        /* ── Toast ── */
+        function showToast() {
+            const toast = document.getElementById('successToast');
+            toast.style.transform = 'translateY(0)';
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.transform = 'translateY(120px)';
+                toast.style.opacity = '0';
+            }, 4000);
+        }
+
+        /* ── FAQ accordion ── */
+        function toggleFaq(id) {
+            const item = document.getElementById(id);
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.cf-faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+
+        /* ── Share ── */
+        function shareCard(name) {
+            if (navigator.share) {
+                navigator.share({ title: name, text: 'Support this campaign by MANTRANA FOUNDATION!', url: window.location.href });
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => alert('Link copied to clipboard!'));
+            }
+        }
+
+        /* ── Donor wall ── */
+        const avatarColors = ['#F47B20','#1E3A8A','#10B981','#8B5CF6','#3B82F6','#EC4899','#EF4444','#F59E0B'];
+        const sampleDonors = [
+            { name: 'Ramesh Kumar', amount: '₹2,000', time: '2 min ago' },
+            { name: 'Priya Sharma', amount: '₹5,000', time: '8 min ago' },
+            { name: 'Anonymous', amount: '₹10,000', time: '15 min ago' },
+            { name: 'Anita Desai', amount: '₹500', time: '32 min ago' },
+            { name: 'Mohammed Ilyas', amount: '₹1,000', time: '1 hr ago' },
+            { name: 'Sunita Rao', amount: '₹2,500', time: '2 hr ago' },
+            { name: 'Vikram Singh', amount: '₹5,000', time: '3 hr ago' },
+            { name: 'Kavita Joshi', amount: '₹750', time: '4 hr ago' },
+        ];
+
+        function buildDonorWall(donors) {
+            const wall = document.getElementById('donorWall');
+            wall.innerHTML = '';
+            donors.forEach((d, i) => {
+                const initials = d.name.split(' ').map(w => w[0]).join('').slice(0, 2);
+                const color = avatarColors[i % avatarColors.length];
+                wall.innerHTML += `
+                    <div class="cf-donor-pill">
+                        <div class="cf-donor-avatar" style="background:${color};">${d.name === 'Anonymous' ? '?' : initials}</div>
+                        <div class="cf-donor-info">
+                            <div class="name">${d.name}</div>
+                            <div class="amount">${d.amount}</div>
+                            <div class="time">${d.time}</div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function addDonorTile(name, amount) {
+            sampleDonors.unshift({ name, amount: '₹' + Number(amount).toLocaleString('en-IN'), time: 'Just now' });
+            buildDonorWall(sampleDonors.slice(0, 8));
+        }
+
+        buildDonorWall(sampleDonors);
+    </script>
+
+</body>
+</html>

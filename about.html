@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MANTRANA FOUNDATION</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+        }
+
+        .about-content strong {
+            color: var(--secondary);
+        }
+
+        .about-image-container {
+            width: 100%;
+        }
+
+        .about-real-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image-container {
+                order: -1;
+            }
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo"
+                    class="logo-img">
+            </a>
+            <div class="nav-links">
+                <div class="premium-translate" id="premiumTranslate">
+                    <button class="translate-btn" id="translateBtn">
+                        TRANSLATE <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="translate-dropdown" id="translateDropdown">
+                        <div class="translate-header">
+                            <h3>Select Language</h3>
+                            <p>INSTANT PAGE TRANSLATION</p>
+                        </div>
+                        <div class="translate-list" id="languageList">
+                            <div class="translate-item active" data-lang="en">
+                                <span class="dot"></span> English
+                            </div>
+                            <div class="translate-item" data-lang="as">
+                                <span class="dot"></span> Assamese
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Awadhi
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bodo
+                            </div>
+                            <div class="translate-item" data-lang="bn">
+                                <span class="dot"></span> Bengali
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Bhojpuri
+                            </div>
+                            <div class="translate-item" data-lang="hi">
+                                <span class="dot"></span> Hindi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="google_translate_element"></div>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="services.html" class="nav-link">Our Work</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="crowdfund.html" class="nav-link">Crowdfunding</a>
+                <a href="disclosure.html" class="nav-link">Disclosure</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="donate.html" class="btn btn-primary nav-donate-btn">Donate</a>
+            </div>
+            <button class="menu-btn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <header class="page-header"
+        style="background: url('assets/about_hero.png') center/cover no-repeat; position: relative;">
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(244, 123, 32, 0.4));">
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 style="color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">About the Foundation</h1>
+            <p style="color: white; opacity: 1; font-weight: 500;">A step towards entrepreneurship and self-reliance</p>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section" style="display: none;">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Entrepreneurs Supported</p>
+            </div>
+            <div class="stat-item">
+                <h3>20+</h3>
+                <p>Govt Schemes Promoted</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>SHG Groups Connected</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Exhibitions Organized</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story section upgraded to Alternating Layout -->
+    <section class="about-section">
+        <div class="container" style="display: flex; flex-direction: column; gap: 80px;">
+            
+            <!-- Division 1 -->
+            <div class="about-grid" style="align-items: center;">
+                <div class="about-image-container">
+                    <img src="assets/entrepreneurship_support.png" alt="Empowerment" class="about-real-image" style="width: 100%; border-radius: 30px; box-shadow: var(--shadow-lg);">
+                </div>
+                <div class="about-content">
+                    <h2 style="color: var(--secondary); margin-bottom: 20px; font-size: 2.2rem;">Our <span class="text-primary">Background</span></h2>
+                    <p><strong>MANTRANA FOUNDATION</strong> was established in 2025 with the objective of promoting entrepreneurship and self-reliance in society. As a non-governmental organization (NGO), we believe in connecting those people and groups to the mainstream who are left behind due to lack of resources or information.</p>
+                    <p>We are dedicated to bridging the gap between potential and opportunity, ensuring that every aspiring entrepreneur has the guidance and support they need to succeed.</p>
+                </div>
+            </div>
+
+            <!-- Division 2 -->
+            <div class="about-grid" style="align-items: center;">
+                <div class="about-content" style="order: 2;">
+                    <h2 style="color: var(--secondary); margin-bottom: 20px; font-size: 2.2rem;">Our <span class="text-primary">Impact & Strategy</span></h2>
+                    <p>The main goal of the foundation is to spread awareness about various government schemes such as Startup India, Digital MSME, and other SHG programs. We ensure that an effective marketing system is developed for the products of small entrepreneurs and groups.</p>
+                    <p>Through both online and offline platforms, we provide product promotion, branding, exhibitions, and modern digital marketing to connect small businesses directly with national and global markets.</p>
+                    
+                    <div class="vision-card">
+                        <div class="vision-header">
+                            <div class="vision-icon-wrapper">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3 class="vision-title">Our Vision & Resolve</h3>
+                        </div>
+                        <p class="vision-text">
+                            "We resolve to build a strong and self-reliant nation based on indigenous values—where our language, traditional attire, and local businesses become the basis of our identity and pride. So that India establishes itself as a leading nation with its unique identity on the global stage."
+                        </p>
+                    </div>
+                </div>
+                <div class="about-image-container" style="order: 1;">
+                    <img src="about-image.png" alt="Team Work" class="about-real-image" style="width: 100%; border-radius: 30px; box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our <span>Leadership Team</span></h2>
+                <p class="section-subtitle">The dedicated individuals driving our mission forward with passion and expertise.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="team-grid">
+                <!-- Member 1: Director -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="assets/pradeep.jpeg" alt="Pradeep Kumar Chaubey">
+                    </div>
+                    <h3 class="team-name">Pradeep Kumar Chaubey</h3>
+                    <span class="team-role">Director</span>
+                    <div class="team-info">
+                        <div class="team-info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9455009789</span>
+                        </div>
+                        <div class="team-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>mr.pradeepchaubey@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2: President -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="assets/ranjana.jpeg" alt="Ranjana Pandey">
+                    </div>
+                    <h3 class="team-name">Ranjana Pandey</h3>
+                    <span class="team-role">President</span>
+                    <div class="team-info">
+                        <div class="team-info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9616108007</span>
+                        </div>
+                        <div class="team-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>2006ranjana@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3: Treasurer -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="assets/suman.jpeg" alt="Kumari Suman">
+                    </div>
+                    <h3 class="team-name">Kumari Suman</h3>
+                    <span class="team-role">Treasurer</span>
+                    <div class="team-info">
+                        <div class="team-info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 6392520785</span>
+                        </div>
+                        <div class="team-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>1194suman@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-details-img-section section-header text-center" style="margin-top: 100px;">
+                <h3 style="color: var(--secondary); margin-bottom: 15px; font-size: 2rem;">Official Governance <span class="text-primary">Record</span></h3>
+                <p style="color: var(--text-muted); margin-bottom: 40px;">Authenticated details of our core leadership and board members.</p>
+                
+                <div class="official-doc-container" style="max-width: 900px; margin: 0 auto; background: var(--white); padding: 30px; border-radius: 24px; box-shadow: var(--shadow-lg); border: 1px solid rgba(0,0,0,0.05); position: relative;">
+                    <div style="position: absolute; top: 15px; right: 15px; background: rgba(244, 123, 32, 0.1); color: var(--primary); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">
+                        Verified NGO Record
+                    </div>
+                    <img src="assets/details.jpeg" alt="Official Team Details" style="width: 100%; height: auto; border-radius: 12px; display: block; border: 1px solid #eee;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Our <span>Core Values</span></h2>
+                <p class="section-subtitle">The principles that guide our journey towards empowering every enterprise.
+                </p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-hand-fist"></i></div>
+                    <h3>Empowerment</h3>
+                    <p>Providing the tools, knowledge, and network needed for small businesses to thrive independently.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Integrity</h3>
+                    <p>Building trust through transparency and unwavering commitment to the communities we serve.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation</h3>
+                    <p>Leveraging modern digital tools and marketing strategies to bring traditional products to the
+                        global stage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2 class="cta-title">Join Our Movement</h2>
+            <p class="cta-text">Together, we can build a more self-reliant and prosperous society. Whether you're an
+                entrepreneur, a volunteer, or a partner, there's a place for you in our journey.</p>
+            <div class="cta-actions">
+                <a href="contact.html" class="btn btn-primary">Join as Partner</a>
+                <a href="donate.html" class="btn btn-outline" style="border-color: white; color: white;">Support Our
+                    Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo"
+                        class="logo-img">
+                </a>
+                <p class="footer-desc">Committed to promoting entrepreneurship and self-reliance in society.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Work</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="crowdfund.html">Crowdfunding</a></li>
+                    <li><a href="disclosure.html">Public Disclosure</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> mantranafoundation@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fas fa-map-marker-alt"></i> India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MANTRANA FOUNDATION. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,bn,te,mr,ta,ur,gu,kn,or,ml,pa,as,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
