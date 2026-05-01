@@ -13,20 +13,20 @@
     <style>
         .page-header {
             padding: 160px 0 80px;
-            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
-            color: white;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            color: var(--secondary);
             text-align: center;
         }
 
         .page-header h1 {
-            color: white;
+            color: var(--secondary);
             font-size: 3rem;
             margin-bottom: 15px;
         }
 
         .page-header p {
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: var(--text-muted);
         }
 
         .about-section {
@@ -144,11 +144,11 @@
     <header class="page-header"
         style="background: url('assets/about_hero.png') center/cover no-repeat; position: relative;">
         <div
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(244, 123, 32, 0.4));">
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));">
         </div>
         <div class="container" style="position: relative; z-index: 2;">
-            <h1 style="color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">About the Foundation</h1>
-            <p style="color: white; opacity: 1; font-weight: 500;">A step towards entrepreneurship and self-reliance</p>
+            <h1 style="color: var(--secondary);">About the Foundation</h1>
+            <p style="color: var(--text-muted); opacity: 1; font-weight: 500;">A step towards entrepreneurship and self-reliance</p>
         </div>
     </header>
 
@@ -280,6 +280,29 @@
                         <div class="team-info-item">
                             <i class="fas fa-envelope"></i>
                             <span>1194suman@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 4: Nutrition & Dietetics Expert -->
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="assets/vibha.jpeg" alt="Vibha Chaubey">
+                    </div>
+                    <h3 class="team-name">Vibha Chaubey</h3>
+                    <span class="team-role">Nutrition & Health Expert</span>
+                    <div class="team-info">
+                        <div class="team-info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Diploma in Applied Nutrition, Food Sciences, and Dietetics</span>
+                        </div>
+                        <div class="team-info-item">
+                            <i class="fas fa-university"></i>
+                            <span>Conducted by the National Fitness & Nutrition Academy (NFNA)</span>
+                        </div>
+                        <div class="team-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Affiliated with NSDC (National Skill Development Corporation) and Skill India</span>
                         </div>
                     </div>
                 </div>

@@ -30,7 +30,7 @@
         .cf-hero {
             position: relative;
             padding: 160px 0 90px;
-            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 60%, #3B82F6 100%);
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
             overflow: hidden;
             text-align: center;
         }
@@ -39,7 +39,7 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.35;
+            opacity: 0.15;
         }
 
         .cf-hero .shape-1 {
@@ -68,10 +68,10 @@
             align-items: center;
             gap: 8px;
             padding: 7px 20px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(30, 58, 138, 0.1);
+            border: 1px solid rgba(30, 58, 138, 0.2);
             border-radius: 50px;
-            color: #fff;
+            color: var(--cf-blue);
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 24px;
@@ -80,7 +80,7 @@
 
         .cf-hero h1 {
             font-size: clamp(2.2rem, 5vw, 3.8rem);
-            color: #fff;
+            color: var(--cf-blue);
             margin-bottom: 18px;
             line-height: 1.15;
         }
@@ -91,7 +91,7 @@
 
         .cf-hero p {
             font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-muted);
             max-width: 620px;
             margin: 0 auto 36px;
         }
@@ -109,7 +109,7 @@
 
         .cf-stat-item {
             text-align: center;
-            color: #fff;
+            color: var(--cf-blue);
         }
 
         .cf-stat-number {
@@ -123,7 +123,7 @@
 
         .cf-stat-label {
             font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-muted);
             margin-top: 6px;
             font-weight: 500;
             text-transform: uppercase;
@@ -1218,7 +1218,7 @@
 <body>
 
     <!-- ── Navbar (shared) ── -->
-    <nav class="navbar" id="mainNav">
+    <nav class="navbar scrolled" id="mainNav">
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="assets/Mantarna_Foundation_4.jpg-removebg-preview.png" alt="MANTRANA FOUNDATION Logo"
@@ -1290,7 +1290,7 @@
                 better tomorrow. Join thousands of changemakers.</p>
             <div class="hero-actions" style="justify-content:center;">
                 <a href="#campaigns" class="btn btn-primary">See Open Campaigns <i class="fas fa-arrow-down"></i></a>
-                <a href="#donate-form" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">Donate Now</a>
+                <a href="#donate-form" class="btn btn-outline" style="border-color:var(--cf-blue);color:var(--cf-blue);">Donate Now</a>
             </div>
 
             <div class="cf-stats-strip">
